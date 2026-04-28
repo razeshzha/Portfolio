@@ -83,59 +83,65 @@ export default function Home() {
 
   return (
     <main className="bg-[#f6f5fb] text-slate-900">
-      <section id="home" className="min-h-screen px-4 py-8 md:px-10">
+      {/* HERO */}
+      <section id="home" className="min-h-screen px-4 py-6 md:px-10 md:py-8">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-white shadow-2xl">
-          <header className="flex items-center justify-between px-6 py-6 md:px-14">
-            <a href="/" className="text-xl font-bold hover:opacity-80">
-              <span className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 px-2 py-1 text-white">
+          {/* HEADER */}
+          <header className="flex items-center justify-between px-5 py-5 md:px-14 md:py-7">
+            <a href="/" className="flex items-center gap-2 text-xl font-bold hover:opacity-80">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-pink-500 text-white">
                 R
-              </span>{" "}
-              Rajesh
+              </span>
+              <span>Rajesh</span>
             </a>
 
             <nav className="hidden gap-10 text-xs font-bold uppercase tracking-widest md:flex">
-              <a href="#about" className="hover:text-violet-600">
+              <a href="#about" className="transition hover:text-violet-600">
                 About
               </a>
-              <a href="#skills" className="hover:text-violet-600">
+              <a href="#skills" className="transition hover:text-violet-600">
                 Skills
               </a>
-              <a href="#projects" className="hover:text-violet-600">
+              <a href="#projects" className="transition hover:text-violet-600">
                 Portfolio
               </a>
-              <a href="#contact" className="hover:text-violet-600">
+              <a href="#contact" className="transition hover:text-violet-600">
                 Contact
               </a>
             </nav>
 
             <a
               href="#contact"
-              className="hidden rounded-full bg-gradient-to-r from-violet-600 to-pink-500 px-6 py-3 text-sm font-semibold text-white md:block"
+              className="hidden rounded-full bg-gradient-to-r from-violet-600 to-pink-500 px-7 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl md:block"
             >
               Hire Me
             </a>
           </header>
 
-          <div className="grid items-center gap-10 px-6 pb-16 pt-10 md:grid-cols-2 md:px-20">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
-                {profile?.name}
+          {/* HERO CONTENT */}
+          <div className="grid items-center gap-12 px-6 pb-16 pt-8 md:grid-cols-2 md:px-20 lg:gap-16">
+            {/* LEFT */}
+            <div className="order-2 md:order-1">
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-violet-600">
+                {profile?.name || "Rajesh Kumar Jha"}
               </p>
 
-              <h1 className="mt-5 text-5xl font-black leading-tight md:text-7xl">
+              <h1 className="mt-5 text-4xl font-black leading-[1.08] text-slate-950 sm:text-5xl md:text-6xl lg:text-[68px]">
                 Hello, my <br />
                 name&apos;s Rajesh. <br />
-                I&apos;m MERN Developer.
+                I&apos;m MERN <br className="hidden sm:block" />
+                Developer.
               </h1>
 
-              <p className="mt-6 max-w-xl leading-8 text-gray-600">
-                {profile?.summary}
+              <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 md:text-lg">
+                {profile?.summary ||
+                  "I build modern, responsive and API-connected web applications using Next.js, React, Node.js, Express.js and MongoDB."}
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-5">
                 <a
                   href="#contact"
-                  className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 px-6 py-3 font-semibold text-white shadow-lg"
+                  className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 px-7 py-4 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   Contact Me
                 </a>
@@ -143,32 +149,50 @@ export default function Home() {
                 <a
                   href="/Rajesh-CV.pdf"
                   download
-                  className="font-bold text-slate-700 hover:text-violet-600"
+                  className="font-bold text-slate-700 transition hover:text-violet-600"
                 >
                   Download CV
                 </a>
               </div>
             </div>
 
-            <div className="relative flex justify-center">
-              <div className="absolute top-8 h-[330px] w-[330px] rounded-full bg-violet-100 md:h-[450px] md:w-[450px]" />
+            {/* RIGHT IMAGE */}
+            <div className="order-1 flex justify-center md:order-2">
+              <div className="relative flex h-[320px] w-[320px] items-center justify-center sm:h-[380px] sm:w-[380px] md:h-[460px] md:w-[460px]">
+                {/* Background circle */}
+                <div className="absolute h-[280px] w-[280px] rounded-full bg-violet-100 sm:h-[340px] sm:w-[340px] md:h-[420px] md:w-[420px]" />
 
-              <img
-                src="/profile.png"
-                alt="Rajesh Kumar Jha"
-                className="relative z-10 h-[400px] object-contain md:h-[520px]"
-              />
+                {/* Premium image circle */}
+                <div className="relative z-10 h-[280px] w-[280px] overflow-hidden rounded-full border-[10px] border-white bg-white shadow-2xl sm:h-[340px] sm:w-[340px] md:h-[420px] md:w-[420px]">
+                  <img
+                    src="/profile.png"
+                    alt="Rajesh Kumar Jha"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+
+                {/* Small decoration */}
+                <div className="absolute bottom-8 right-8 z-20 hidden rounded-2xl bg-white px-5 py-3 shadow-xl md:block">
+                  <p className="text-xs font-bold uppercase tracking-widest text-violet-600">
+                    2+ Years
+                  </p>
+                  <p className="text-sm font-bold text-slate-800">
+                    Experience
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ABOUT */}
       <section id="about" className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
           About Me
         </p>
 
-        <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+        <h2 className="mt-3 text-3xl font-black leading-tight md:text-4xl">
           I create modern, scalable and user-friendly web applications.
         </h2>
 
@@ -179,35 +203,40 @@ export default function Home() {
         </p>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl bg-white p-5 shadow">
-            <h3 className="font-bold">Location</h3>
-            <p className="mt-2 text-gray-600">{profile?.location}</p>
+          <div className="rounded-2xl bg-white p-6 shadow">
+            <h3 className="font-bold text-slate-900">Location</h3>
+            <p className="mt-2 text-gray-600">{profile?.location || "Nepal"}</p>
           </div>
 
-          <div className="rounded-2xl bg-white p-5 shadow">
-            <h3 className="font-bold">Experience</h3>
-            <p className="mt-2 text-gray-600">{profile?.experience}</p>
+          <div className="rounded-2xl bg-white p-6 shadow">
+            <h3 className="font-bold text-slate-900">Experience</h3>
+            <p className="mt-2 text-gray-600">
+              {profile?.experience || "2 Years"}
+            </p>
           </div>
 
-          <div className="rounded-2xl bg-white p-5 shadow">
-            <h3 className="font-bold">Email</h3>
-            <p className="mt-2 text-gray-600">{profile?.email}</p>
+          <div className="rounded-2xl bg-white p-6 shadow">
+            <h3 className="font-bold text-slate-900">Email</h3>
+            <p className="mt-2 break-words text-gray-600">
+              {profile?.email || "your.email@example.com"}
+            </p>
           </div>
         </div>
       </section>
 
+      {/* SKILLS */}
       <section id="skills" className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
           Expertise
         </p>
 
-        <h2 className="mt-3 text-3xl font-bold">Skills</h2>
+        <h2 className="mt-3 text-3xl font-black">Skills</h2>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          {profile?.skills.map((skill) => (
+          {profile?.skills?.map((skill) => (
             <span
               key={skill}
-              className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow"
+              className="rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-700 shadow transition hover:-translate-y-0.5 hover:text-violet-700"
             >
               {skill}
             </span>
@@ -215,16 +244,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* EXPERIENCE */}
       <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
           Experience
         </p>
 
-        <h2 className="mt-3 text-3xl font-bold">Work Experience</h2>
+        <h2 className="mt-3 text-3xl font-black">Work Experience</h2>
 
         <div className="mt-8 rounded-3xl bg-white p-8 shadow">
-          <h3 className="text-xl font-bold">Full Stack Web Developer</h3>
-          <p className="mt-1 text-sm font-semibold text-violet-600">
+          <h3 className="text-xl font-black">Full Stack Web Developer</h3>
+          <p className="mt-1 text-sm font-bold text-violet-600">
             Janak Tech Company Ltd | 2024 - 2026
           </p>
 
@@ -239,8 +269,8 @@ export default function Home() {
         </div>
 
         <div className="mt-6 rounded-3xl bg-white p-8 shadow">
-          <h3 className="text-xl font-bold">MERN Stack Intern</h3>
-          <p className="mt-1 text-sm font-semibold text-violet-600">
+          <h3 className="text-xl font-black">MERN Stack Intern</h3>
+          <p className="mt-1 text-sm font-bold text-violet-600">
             Broadway Infosys | 3 Months
           </p>
 
@@ -253,12 +283,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJECTS */}
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
           Portfolio
         </p>
 
-        <h2 className="mt-3 text-3xl font-bold">Recent Projects</h2>
+        <h2 className="mt-3 text-3xl font-black">Recent Projects</h2>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {projects.map((project) => (
@@ -266,7 +297,7 @@ export default function Home() {
               key={project.title}
               className="rounded-3xl bg-white p-6 shadow transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <h3 className="text-xl font-bold">{project.title}</h3>
+              <h3 className="text-xl font-black">{project.title}</h3>
 
               <p className="mt-3 text-sm leading-7 text-gray-600">
                 {project.description}
@@ -276,27 +307,39 @@ export default function Home() {
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700"
+                    className="rounded-full bg-violet-50 px-3 py-1 text-xs font-bold text-violet-700"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
+
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-block text-sm font-bold text-violet-600 hover:text-pink-500"
+                >
+                  View Project →
+                </a>
+              )}
             </div>
           ))}
         </div>
       </section>
 
+      {/* CONTACT */}
       <section id="contact" className="mx-auto max-w-4xl px-6 py-20">
         <div className="rounded-3xl bg-white p-6 shadow-xl md:p-10">
           <p className="text-sm font-bold uppercase tracking-widest text-violet-600">
             Contact
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold">Let&apos;s work together</h2>
+          <h2 className="mt-3 text-3xl font-black">Let&apos;s work together</h2>
 
           {success && (
-            <p className="mt-4 rounded-xl bg-green-50 p-4 text-sm font-semibold text-green-700">
+            <p className="mt-4 rounded-xl bg-green-50 p-4 text-sm font-bold text-green-700">
               Message saved and email sent successfully ✅
             </p>
           )}
@@ -330,7 +373,7 @@ export default function Home() {
             <button
               type="submit"
               disabled={sending}
-              className="rounded-xl bg-gradient-to-r from-violet-600 to-pink-500 px-8 py-4 font-bold text-white disabled:opacity-60"
+              className="rounded-xl bg-gradient-to-r from-violet-600 to-pink-500 px-8 py-4 font-bold text-white shadow-lg disabled:opacity-60"
             >
               {sending ? "Sending..." : "Send Message"}
             </button>
@@ -338,8 +381,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-white px-6 py-6 text-center text-xl font-semibold text-black/50">
-      © 2026 Rajesh Kumar Jha. All rights reserved.
+      {/* FOOTER */}
+      <footer className="bg-white px-6 py-6 text-center text-lg font-bold text-black/50 md:text-xl">
+        © 2026 Rajesh Kumar Jha. All rights reserved.
       </footer>
     </main>
   );
