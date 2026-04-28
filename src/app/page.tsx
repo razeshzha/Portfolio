@@ -338,8 +338,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-white px-6 py-6 text-center text-sm text-black/50">
-        © 2026 Rajesh Kumar Jha. All rights reserved.
+      <footer className="bg-white px-6 py-6 text-center text-xl font-semibold text-black/50">
+      © 2026 Rajesh Kumar Jha. All rights reserved.
       </footer>
     </main>
   );
